@@ -23,4 +23,4 @@ resource "aws_instance" "my_app" {
         Periodo = "${var.periodo}o Periodo"
         Aluno = "${var.nome}"
     }
-} 
+}
