@@ -53,7 +53,7 @@ resource "aws_instance" "my_app" {
         sudo curl -L https://github.com/docker/compose/releases/download/2.6.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
         sudo chmod +x /usr/local/bin/docker-compose
         sudo docker pull jonasxpx/projeto4:latest
-        sudo docker run -e HOST=${aws_db_instance.default.address} -e PASS=${var.rds_password} -e DB=${var.rds_database} -e PORT=${aws_db_instance.default.port} -e USER=${var.rds_username} jonasxpx/projeto4:1
+        sudo docker run -p 8080:8080 -e HOST=${aws_db_instance.default.address} -e PASS=${var.rds_password} -e DB=${var.rds_database} -e PORT=${aws_db_instance.default.port} -e USER=${var.rds_username} jonasxpx/projeto4:latest
     EOF
 
     key_name = var.pair_key
